@@ -1,0 +1,145 @@
+html {
+	min-height: 100%;
+	--bg: white;
+	--bg-panel: #eee;
+	--active-line-bg: #eee;
+	--color-text: black;
+	--active-line-color: black;
+	--border-color: #ccc;
+	--button-hover-bg: #eee;
+	background-color: var(--bg);
+}
+
+html[data-theme='dark'] {
+	--bg: #1A1A1A;
+	--bg-panel: black;
+	--active-line-bg: #1D1F1C;
+	--active-line-color: #94D7A6;
+	--border-color: #333;
+	--button-hover-bg: #222;
+	--color-text: #FFFBD9;
+	color-scheme: dark;
+}
+
+@font-face {
+	font-family: 'icomoon';
+	src: url('/icomoon.woff') format('woff');
+	font-weight: normal;
+	font-style: normal;
+	font-display: block;
+}
+
+.icon,
+[class^="icon-"],
+[class*=" icon-"] {
+	/* use !important to prevent issues with browser extensions that change fonts */
+	font-family: 'icomoon' !important;
+	speak: never;
+	font-style: normal;
+	font-weight: normal;
+	font-variant: normal;
+	text-transform: none;
+	line-height: 1;
+
+	/* Better Font Rendering */
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+.icon-moon:before {
+	content: '\e900';
+}
+
+.icon-sun:before {
+	content: '\e901';
+}
+
+body {
+	display: grid;
+	grid-template-columns: repeat(2, 1fr);
+	grid-auto-rows: minmax(min-content, max-content);
+	font-family: Menlo, Consolas, "Courier New", Courier, "Liberation Mono", monospace;
+	font-size: 16px;
+	color: var(--color-text);
+}
+
+header,
+main {
+	display: grid;
+	grid-template-columns: repeat(2, 1fr);
+}
+
+pre {
+	margin: 0;
+}
+
+section {
+	overflow: auto;
+	padding: 1rem;
+}
+
+section:last-of-type {
+	background: var(--bg-panel);
+	border-radius: 0.25rem;
+}
+
+menu {
+	padding: 0;
+}
+
+input[type="file"] {
+	display: none;
+}
+
+.button,
+button {
+	all: unset;
+	border: 1px solid var(--border-color);
+	display: inline-block;
+	padding: 6px 12px;
+	border-radius: 0.25rem;
+	cursor: pointer;
+}
+
+.button:hover,
+button:hover {
+	background-color: var(--button-hover-bg);
+}
+
+.button:active,
+button:active {
+	background-color: transparent;
+}
+
+#program {
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+}
+
+#program li {
+	font-size: 1rem;
+}
+
+#program li.current {
+	color: var(--active-line-color);
+	background-color: var(--active-line-bg);
+}
+
+#debug {
+	font-size: 1rem;
+}
+
+#toggle-theme {
+	grid-column: 1 / span 2;
+	justify-self: end;
+	font-size: 2rem;
+}
+
+#toggle-theme:before {
+	content: '\e900';
+}
+
+html[data-theme='dark'] #toggle-theme:before {
+	content: '\e901';
+}

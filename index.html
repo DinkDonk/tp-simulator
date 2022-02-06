@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en-US" data-theme="light">
+	<head>
+		<link href="https://fonts.googleapis.com/css?family=Raleway:200,700|Source+Sans+Pro:400,400i,600" rel="stylesheet">
+		<meta charset="utf-8">
+		<title>Simulate TP Programs in the Browser</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="robots" content="NOODP">
+
+		<link rel="stylesheet" href="/main.css" media="all">
+	</head>
+	<body>
+		<button id="toggle-theme" class="icon"></button>
+
+		<h3>Program</h3>
+		<h3>Debug</h3>
+
+		<section>
+			<menu>
+				<label for="file-upload" class="button">Load</label>
+				<input id="file-upload" type="file">
+				<button id="reset">Reset</button>
+				<button id="step">Step</button>
+				<button id="run">Run</button>
+				<button id="pause">Pause</button>
+			</menu>
+
+			<ul id="program"></ul>
+		</section>
+
+		<section>
+			<p>R[1] = <span id="numreg_1">0</span></p>
+			<pre id="debug"></pre>
+		</section>
+
+		<script src="/lib/tp.min.js"></script>
+		<script src="/main.js"></script>
+	</body>
+</html>
