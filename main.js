@@ -160,11 +160,16 @@ document.querySelector('#toggle-theme').addEventListener('click', () => {
 	document.documentElement.dataset.theme = document.documentElement.dataset.theme == 'light' ? 'dark' : 'light';
 });
 
-const prefersDarkScheme = window.matchMedia('(prefers-color-scheme: dark)');
-if (prefersDarkScheme.matches) {
-	document.documentElement.dataset.theme = 'dark';
-} else {
-	document.documentElement.dataset.theme = 'light';
+const colorSchemeQueryList = window.matchMedia('(prefers-color-scheme: dark)');
+const setColorScheme = e => {
+	if (e.matches) {
+		document.documentElement.dataset.theme = 'dark';
+	} else {
+		document.documentElement.dataset.theme = 'light';
+	}
 }
+
+setColorScheme(colorSchemeQueryList);
+colorSchemeQueryList.addEventListener('change', setColorScheme);
 
 init(programString);
